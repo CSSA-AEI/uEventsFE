@@ -7,7 +7,7 @@ const Home: React.FC = () => {
     return (
         <div className='home-layers'>
             <Suspense fallback={<div>Loading...</div>}>
-                <div>Hallo Hallo</div>
+                <div>Home Page here</div>
             </Suspense>
         </div>
     );
