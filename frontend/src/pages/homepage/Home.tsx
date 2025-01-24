@@ -1,5 +1,5 @@
 import React, { useState , Suspense , useEffect } from 'react';
-import './home.css';
+import './Home.css';
 
 const Home: React.FC = () => {
   
