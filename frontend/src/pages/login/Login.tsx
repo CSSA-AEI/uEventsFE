@@ -34,8 +34,24 @@ const Login: React.FC = () => {
     return (
             <div className='login-layers'>
                 <Suspense fallback={<div>Loading...</div>}>
-                    <div className='top-pictures' style={{backgroundColor: "#8F001A"}}>
-
+                    <div className='top-pictures'>
+                        <div className='pictures-top-layer'>
+                            <div className='top-images-container'>
+                                <div style={{backgroundColor: "red"}}></div>
+                                <div ></div>
+                                <div style={{backgroundColor: "teal"}}></div>
+                            </div>
+                        </div>
+                        <div className='pictures-bottom-layer'>
+                            <div className='top-images-container'>
+                                <div style={{backgroundColor: "red"}}></div>
+                                <div ></div>
+                                <div style={{backgroundColor: "teal"}}></div>
+                                <div style={{backgroundColor: "red"}}></div>
+                                <div ></div>
+                                <div style={{backgroundColor: "teal"}}></div>
+                            </div>
+                        </div>
                     </div>
                     <div className='login-processing'>
                         {render()}
