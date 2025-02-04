@@ -1,0 +1,32 @@
+.welcome-body{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+    position: relative;
+}
+.login-header{
+    margin: min(20px, 5vw) 0;
+    padding: min(20px, 3vw) 0;
+    font-weight: 800;
+    font-size: var(--header-font-size);
+}
+.powered-cssa{
+    font-size: clamp(10px, 12px, 16px);
+    margin: min(20px, 5vw) 0;
+    padding: min(20px, 3vw) 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-self: flex-end;
+    justify-self: flex-end;
+    position: absolute;
+    bottom: 0;
+}
+.login-container{
+    display: flex;
+    flex-direction: column;
+    gap: min(20px, 5vw);
+    height: fit-content ;
+}

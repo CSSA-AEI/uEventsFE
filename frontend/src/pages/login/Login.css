@@ -1,0 +1,12 @@
+.login-layers{
+    box-sizing: border-box;
+    height: 100%;
+}
+.top-pictures{
+    height: 35vh;
+}
+.login-processing{
+    height: 65vh;
+    box-sizing: border-box;
+    padding: min(40px, 10vw);
+}

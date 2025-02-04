@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/homepage/Home.tsx';
+import Login from './pages/login/Login.tsx';
 // Import search component here - should look something like `import Home from './pages/homepage'; `
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" Component={Home} />
+          <Route path="/" Component={Login} />
         </Routes>
       </div>
     </Router>
