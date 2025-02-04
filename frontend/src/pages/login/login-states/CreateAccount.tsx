@@ -45,7 +45,7 @@ const CreateAccount: React.FC<CreateAccountProps> = ({setPage}) => {
             console.log('Success:', result);
 
             // Navigate to next page (e.g., login)
-            setPage(1);
+            setPage(3);
         } catch (error) {
             console.error('Error:', error);
             alert('Registration failed, please try again.');
