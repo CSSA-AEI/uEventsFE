@@ -10,9 +10,9 @@
     color: white;
 }
 .event-img-container{
-    width: 100%; /*Ensuring that the image is a square*/
+    width: 100%; 
     background-color: aquamarine;
-    height: calc(min(200px, 45vw) - min(10px, 3vw)*2);
+    height: calc(max(150px, 45vw) - min(10px, 3vw)*2); /*Ensuring that the image is a square*/
     /* height: 45vw; */
     border-radius: 3vw;
 }
@@ -43,6 +43,5 @@
 .event-card-tags{
     display: flex;
     flex-wrap: wrap;
-    row-gap: 3px;
-    /* padding: min(10px, 3vw); */
+    gap: 3px;
 }

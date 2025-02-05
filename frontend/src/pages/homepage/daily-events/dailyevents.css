@@ -37,8 +37,10 @@
 .event-on-day{
     height: 100%;
 }
+
+/*iPhone SE*/
 @media (max-height: 700px) {
     .daily-events{
-        min-height: 40vh;
+        min-height: 45vh;
     }
 }
