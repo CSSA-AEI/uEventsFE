@@ -42,4 +42,7 @@ code {
 :root{
   --header-font-size: clamp(0.5rem, 6vw, 2.5rem);
   --regular-font-size: clamp(0.75rem, 1vw, 2rem);
+  --tiny-font-size: clamp(0.5rem, 0.8vw, 1.2rem);
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap');

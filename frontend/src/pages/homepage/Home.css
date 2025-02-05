@@ -4,4 +4,9 @@
         We are using portrait because phones
         
     */
+    .home-layers{
+        box-sizing: border-box;
+        height: 100%;
+        padding: min(30px, 10vw);
+    }
 }

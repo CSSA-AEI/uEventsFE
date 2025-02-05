@@ -10,7 +10,7 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" Component={Login} />
+          <Route path="/" Component={Home} />
         </Routes>
       </div>
     </Router>

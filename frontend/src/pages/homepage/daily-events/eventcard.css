@@ -1,0 +1,48 @@
+.event-card-container{
+    width: max(150px, 45vw);
+    height: 100%;
+    padding: min(10px, 3vw);
+    box-sizing: border-box;
+    border-radius: 3vw;
+    display: flex;
+    flex-direction: column;
+    background-color: #8F001A;
+    color: white;
+}
+.event-img-container{
+    width: 100%; /*Ensuring that the image is a square*/
+    background-color: aquamarine;
+    height: calc(min(200px, 45vw) - min(10px, 3vw)*2);
+    /* height: 45vw; */
+    border-radius: 3vw;
+}
+.event-card-details{
+    width: 100%;
+    height: fit-content;
+    padding: min(10px, 3vw) 0;
+    text-align: left;
+}
+.event-card-header{
+    font-size: clamp(0.85rem, 1vw, 2rem);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.event-card-header > p{
+    margin: 2px 0;
+}
+.club-card-logo{
+    height: 25px;
+    background-color: black;
+    width: 25px;
+    border-radius: 50%;
+}
+.event-card-time{
+    font-size: clamp(0.65rem, 1vw, 2rem);
+}
+.event-card-tags{
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 3px;
+    /* padding: min(10px, 3vw); */
+}

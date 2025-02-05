@@ -1,0 +1,44 @@
+.day-events-container{
+    overflow: hidden;
+}
+.date-header{
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+}
+.date{
+    font-family: 'Gloock';
+    font-size: var(--header-font-size);
+    display: flex;
+    align-items: center;
+}
+.day-navigation-buttons{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.day-navigation{
+    padding: min(10px, 3vw);
+    width: min(35px, 10vw);
+    height: min(35px, 10vw);
+    border-radius: 50%;
+    background-color: black;
+    box-sizing: border-box;
+}
+.daily-events{
+    box-sizing: border-box;
+    padding: min(10px, 3vw) 0;
+    height: max(35vh, 200px);
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    overflow: scroll;
+}
+.event-on-day{
+    height: 100%;
+}
+@media (max-height: 700px) {
+    .daily-events{
+        min-height: 40vh;
+    }
+}

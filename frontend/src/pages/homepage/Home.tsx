@@ -1,4 +1,5 @@
 import React, { useState , Suspense , useEffect } from 'react';
+import DailyEvents from './daily-events/DailyEvents.tsx';
 import './Home.css';
 
 const Home: React.FC = () => {
@@ -7,7 +8,7 @@ const Home: React.FC = () => {
     return (
         <div className='home-layers'>
             <Suspense fallback={<div>Loading...</div>}>
-                <div>Home Page here</div>
+                <div><DailyEvents /></div>
             </Suspense>
         </div>
     );
