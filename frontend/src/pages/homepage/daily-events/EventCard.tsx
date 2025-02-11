@@ -1,12 +1,13 @@
 import React, { useState , Suspense , useEffect } from 'react';
 import Pill from '../../../components/Pill.tsx';
+import { Link } from "react-router";
 import './eventcard.css';
 
 const EventCard: React.FC = () => {
   
     // TODO: Follow Figma flow, the whole login process should be done here
     return (
-        <div className='event-card-container'>
+        <Link to='/' className='event-card-container'>
             <div className='event-img-container'>
 
             </div>
@@ -22,7 +23,7 @@ const EventCard: React.FC = () => {
                 <Pill title='Academic'/>
                 <Pill title='Francophone'/>
             </div>
-        </div>
+        </Link>
     );
 };
 

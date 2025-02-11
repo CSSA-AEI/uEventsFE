@@ -1,6 +1,6 @@
 .event-card-container{
-    width: max(150px, 45vw);
-    height: 100%;
+    width: min(200px, 45vw);
+    height: min(100%, fit-content);
     padding: min(10px, 3vw);
     box-sizing: border-box;
     border-radius: 3vw;
@@ -8,11 +8,12 @@
     flex-direction: column;
     background-color: #8F001A;
     color: white;
+    text-decoration: none;
 }
 .event-img-container{
     width: 100%; 
     background-color: aquamarine;
-    height: calc(max(150px, 45vw) - min(10px, 3vw)*2); /*Ensuring that the image is a square*/
+    height: calc(min(200px, 45vw) - min(10px, 3vw)*2); /*Ensuring that the image is a square*/
     /* height: 45vw; */
     border-radius: 3vw;
 }

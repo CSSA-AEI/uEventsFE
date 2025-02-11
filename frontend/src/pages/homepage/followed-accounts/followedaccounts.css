@@ -1,0 +1,21 @@
+.followed-accounts-container{
+    width: 100%;
+    overflow: hidden;
+    text-decoration: none;
+    margin: min(10px, 3vw) 0;
+}
+.followed-accounts-header{
+    width: 100%;
+    font-family: 'Gloock';
+    text-align: left;
+    font-size: var(--header-font-size);
+}
+.following-accounts{
+    width: 100%;
+    display: flex;
+    padding: min(10px, 3vw) 0;
+    overflow: scroll;
+    height: fit-content;
+    box-sizing: border-box;
+    gap: 10px;
+}

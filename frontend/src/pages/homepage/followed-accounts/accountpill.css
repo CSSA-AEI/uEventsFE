@@ -1,0 +1,32 @@
+.account-pill{
+    height: 10vh;
+    min-width: min(300px, 75vw);
+    padding: min(15px, 5vw);
+    box-sizing: border-box;
+    border-radius: 3vw;
+    display: flex;
+    justify-content: space-between;
+    background-color: #722F37;
+    text-decoration: none;
+}
+.account-pill-logo{
+    height: 100%;
+    width: calc(10vh - min(15px, 5vw)*2);
+    background-color: white;
+    border-radius: 3vw;
+    border-radius: 50%;
+}
+.account-names{
+    text-align: left;
+    width: calc(min(300px, 75vw) - 10vh - min(10px, 3vw)*2);
+    display: flex;
+    flex-direction: column;
+    color: white;
+    gap: 10px;
+}
+.account-title{
+    font-size: clamp(0.85rem, 1vw, 2rem);
+}
+.account-full-title{
+    font-size: clamp(0.65rem, 1vw, 2rem);
+}
