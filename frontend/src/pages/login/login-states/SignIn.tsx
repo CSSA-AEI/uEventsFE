@@ -32,12 +32,16 @@ const SignIn: React.FC<SignInProps> = ({setPage}) => {
 
         try {
             // POST to endpoint to verify user data is correct
-            const response = await fetch('http://ueventsbe.onrender.com/users/validate-user', {
+            console.log("woke")
+            const response = await fetch('https://localhost:3002/users/validate-user', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(formData),
+                mode: 'cors',
+                redirect: 'manual',
+                credentials: 'include',
             });
 
             if (!response.ok) {
