@@ -6,7 +6,13 @@
     border-radius: 3vw;
     display: flex;
     justify-content: space-between;
-    background-color: #722F37;
+    background:
+        radial-gradient(50% 50% at 100% 0,var(--_g2)),
+        radial-gradient(50% 50% at 0 100%,var(--_g2)),
+        radial-gradient(50% 50%,var(--_g2)),
+        radial-gradient(50% 50%,var(--_g2)) calc(var(--s)/2) calc(var(--s)/2)
+        var(--c3);
+        background-size: var(--s) var(--s);
     text-decoration: none;
 }
 .account-pill-logo{

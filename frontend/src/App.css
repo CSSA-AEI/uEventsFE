@@ -30,6 +30,8 @@
     height: 100%;
     box-sizing: border-box;
     overflow: scroll;
+    padding: min(25px, 10vw);
+    overflow-x: hidden;
   }
 }
 @media (orientation: landscape) {

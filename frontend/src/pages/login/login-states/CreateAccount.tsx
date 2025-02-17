@@ -29,12 +29,15 @@ const CreateAccount: React.FC<CreateAccountProps> = ({setPage}) => {
         event.preventDefault();
 
         try {
-            const response = await fetch('', {
+            const response = await fetch('http://ueventsbe.onrender.com/users/add-user', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(formData),
+                mode: 'cors',
+                redirect: 'manual',
+                credentials: 'include',
             });
 
             if (!response.ok) {

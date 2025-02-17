@@ -6,9 +6,17 @@
     border-radius: 3vw;
     display: flex;
     flex-direction: column;
-    background-color: #8F001A;
+    background-color: #8C0327;
     color: white;
     text-decoration: none;
+    border: 1px solid #A8763E;
+    background:
+        radial-gradient(50% 50% at 100% 0,var(--_g2)),
+        radial-gradient(50% 50% at 0 100%,var(--_g2)),
+        radial-gradient(50% 50%,var(--_g2)),
+        radial-gradient(50% 50%,var(--_g2)) calc(var(--s)/2) calc(var(--s)/2)
+        var(--c3);
+        background-size: var(--s) var(--s);
 }
 .event-img-container{
     width: 100%; 
@@ -45,4 +53,14 @@
     display: flex;
     flex-wrap: wrap;
     gap: 3px;
+}
+html {
+    --s: 64px; /* control the size*/
+    --c3: #8C0327;
+    --c4: #9d001d;
+    
+    --_g2: 
+       var(--c3) 0%  5% ,var(--c4) 6%  15%,var(--c3) 16% 25%,var(--c4) 26% 35%,var(--c3) 36% 45%,
+       var(--c4) 46% 55%,var(--c3) 56% 65%,var(--c4) 66% 75%,var(--c3) 76% 85%,var(--c4) 86% 95%,
+       #0000 96%;
 }

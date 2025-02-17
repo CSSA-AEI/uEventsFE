@@ -20,23 +20,25 @@ const Navbar: React.FC = () => {
   }, [active]);
 
   return (
-    <div className="navbar-body">
-      <ul className="navbar-list" ref={navRef}>
-        {/* Sliding Background */}
-        <motion.div
-          className="active-bg"
-          animate={indicatorStyle}
-          transition={{ type: "spring", stiffness: 500, damping: 30 }}
-        />
-
+    <div className='navbar-body'>
+      <ul className='navbar-list'>
         {navItems.map((item) => (
-          <li
+          <motion.li
             key={item}
             className={`navbar-item ${active === item ? "active" : ""}`}
             onClick={() => setActive(item)}
+            layout // Enables automatic FLIP-like animation
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
-            {item}
-          </li>
+            {active === item && (
+              <motion.div
+                className="active-bg"
+                layoutId="activeBg"
+                transition={{ type: "spring", stiffness: 500, damping: 30 }}
+              />
+            )}
+              {item}
+          </motion.li>
         ))}
       </ul>
     </div>

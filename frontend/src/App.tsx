@@ -1,18 +1,39 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Home from './pages/homepage/Home.tsx';
+import EventPage from './pages/event/EventPage.tsx';
+import Navbar from './components/Navbar.tsx';
 import Login from './pages/login/Login.tsx';
-// Import search component here - should look something like `import Home from './pages/homepage'; `
+import { useAuth } from './authentication/AuthContext.tsx';
+
+function AppContent() {
+  const { isLoggedIn } = useAuth();
+  const location = useLocation();  // Now safely inside Router context
+
+  return (
+    <div className="App">
+      {isLoggedIn && location.pathname !== '/login' && <Navbar />}
+
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        {isLoggedIn ? (
+          <>
+            <Route path="/" element={<Home />} />
+            <Route path="/events/:eventId" element={<EventPage />} />
+          </>
+        ) : (
+          <Route path="*" element={<Navigate to="/login" />} />
+        )}
+      </Routes>
+    </div>
+  );
+}
 
 function App() {
   return (
     <Router>
-      <div className="App">
-        <Routes>
-          <Route path="/" Component={Home} />
-        </Routes>
-      </div>
+      <AppContent /> 
     </Router>
   );
 }

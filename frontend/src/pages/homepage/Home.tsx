@@ -1,6 +1,7 @@
 import React, { useState , Suspense , useEffect } from 'react';
 import DailyEvents from './daily-events/DailyEvents.tsx';
 import FollowedAccounts from './followed-accounts/FollowedAccounts.tsx';
+import { useAuth } from '../../authentication/AuthContext.tsx';
 import { motion } from "framer-motion";
 import Navbar from '../../components/Navbar.tsx';
 import './Home.css';
@@ -11,32 +12,17 @@ const Home: React.FC = () => {
 
     const [active, setActive] = useState("Home");
   
-    // TODO: Follow Figma flow, the whole login process should be done here
+    const { userRole } = useAuth();
+
+    if (userRole === 'guest') {
+        console.log('User is a guest');
+    } else if (userRole === 'authenticated') {
+        console.log('User is authenticated');
+    }
+
     return (
         <div className='home-layers'>
             <Suspense fallback={<div>Loading...</div>}>
-                <div className='navbar-body'>
-                    <ul className='navbar-list'>
-                        {navItems.map((item) => (
-                            <motion.li
-                                key={item}
-                                className={`navbar-item ${active === item ? "active" : ""}`}
-                                onClick={() => setActive(item)}
-                                layout // Enables automatic FLIP-like animation
-                                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                            >
-                                {active === item && (
-                                <motion.div
-                                    className="active-bg"
-                                    layoutId="activeBg"
-                                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                                />
-                                )}
-                                {item}
-                            </motion.li>
-                        ))}
-                    </ul>
-                </div>
                 <DailyEvents />
                 <div className='homepage-buttons'>
                     <div className='uottawa-news'>

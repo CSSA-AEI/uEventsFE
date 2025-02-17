@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import TextContainer from '../../../components/login/TextContainer.tsx';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../../authentication/AuthContext.tsx';
 import './createaccount.css';
 
 interface SignInProps {
@@ -9,6 +11,8 @@ interface SignInProps {
 const SignIn: React.FC<SignInProps> = ({setPage}) => {
 
     // TODO: Follow Figma flow, the whole login process should be done here
+    const { login } = useAuth();
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         email: '',
@@ -28,7 +32,7 @@ const SignIn: React.FC<SignInProps> = ({setPage}) => {
 
         try {
             // POST to endpoint to verify user data is correct
-            const response = await fetch('', {
+            const response = await fetch('http://ueventsbe.onrender.com/users/validate-user', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -44,7 +48,10 @@ const SignIn: React.FC<SignInProps> = ({setPage}) => {
             console.log('Success:', result);
 
             // Navigate to next page (e.g., login)
-            setPage(1);
+            login("authenticated");
+
+            // Redirect to homepage after successful login
+            navigate('/');
         } catch (error) {
             console.error('Error:', error);
             alert('Registration failed, please try again.');
@@ -59,7 +66,7 @@ const SignIn: React.FC<SignInProps> = ({setPage}) => {
                 <input className='login-input' type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} required/>
                 <div className='create-account-buttons'>
                     <button onClick={() => setPage(1)}>Go back</button>
-                    <button type='submit'>Create</button>
+                    <button type='submit'>Sign In</button>
                 </div>
             </form>
             <div className='powered-cssa'>Powered by the CSSA</div>

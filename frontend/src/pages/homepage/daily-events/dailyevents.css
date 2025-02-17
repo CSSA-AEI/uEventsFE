@@ -29,7 +29,7 @@
 .daily-events{
     box-sizing: border-box;
     padding: min(10px, 3vw) 0;
-    height: min(35vh, fit-content);
+    height: 35vh;
     width: 100%;
     display: flex;
     gap: 10px;
@@ -37,6 +37,7 @@
 }
 .event-on-day{
     height: 100%;
+    display: flex;
 }
 
 /*iPhone SE*/

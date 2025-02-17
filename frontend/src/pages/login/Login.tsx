@@ -1,13 +1,16 @@
 import React, { useState , Suspense , useEffect } from 'react';
 import Welcome from './login-states/Welcome.tsx';
 import SignIn from './login-states/SignIn.tsx';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../authentication/AuthContext.tsx';
 import './Login.css';
 import CreateAccount from './login-states/CreateAccount.tsx';
 
 const Login: React.FC = () => {
   
     // TODO: Follow Figma flow, the whole login process should be done here
+    const { login } = useAuth();
+    const navigate = useNavigate();
     const [searchParams, setSearchParams] = useSearchParams();
 
     // Get page from URL or default to 0
@@ -17,6 +20,7 @@ const Login: React.FC = () => {
     const setPage = (newPage: number) => {
         setSearchParams({ page: newPage.toString() });
     };
+
 
     const render = () =>{
         switch(page){
