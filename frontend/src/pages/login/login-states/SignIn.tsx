@@ -33,7 +33,7 @@ const SignIn: React.FC<SignInProps> = ({setPage}) => {
         try {
             // POST to endpoint to verify user data is correct
             console.log("woke")
-            const response = await fetch('https://localhost:3002/users/validate-user', {
+            const response = await fetch('http://ueventsbe.onrender.com/users/validate-user', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
