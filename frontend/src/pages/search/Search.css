@@ -4,4 +4,74 @@
         We are using portrait because phones
         
     */
+    .search-layers{
+        box-sizing: border-box;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        position: relative;
+    }
+    .search{
+        height: 7.5%;
+        width: 100%;
+        position: relative;
+    }
+    .search-bar{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: white;
+        border-radius: 25px;
+        border: solid;
+        border-width: 2px;
+        border-color:black;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 1;
+        gap: 10px;
+    }
+    #search-input{
+        height: 100%;
+        background: transparent;
+        border: 0;
+        outline: none;
+        flex: 1;
+    }
+    .search-filter-button{
+        height: 75%;
+        aspect-ratio: 1;
+        background-image: url('/src/assets/search-bar-filters-icon.svg');
+        background-size: contain;
+        cursor: pointer;
+    }
+    #search-button{
+        height: 75%;
+        aspect-ratio: 1;
+        border: 0;
+        background: transparent;
+        background-image: url('/src/assets/search-bar-search-icon.svg');
+        background-size: contain;
+    }
+
+    .filter-dropdown{
+        position: absolute;
+        top: 0;
+        height: min(100%, fit-content);
+        width: 100%;;
+        background: white;
+        border-radius: 25px;
+        padding: 10px;
+        padding-top: 20%;
+        box-sizing: border-box;
+        z-index: 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
 }

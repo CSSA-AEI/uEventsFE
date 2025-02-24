@@ -1,0 +1,20 @@
+@media (orientation: portrait) {
+    /*
+        All code for the styling should go here
+        We are using portrait because phones
+        
+    */
+    .result-layers{
+        box-sizing: border-box;
+    }
+    .result-events{
+        display: grid;
+        box-sizing: border-box;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    .event{
+        height: 100%;
+        display: flex;
+    }
+}
