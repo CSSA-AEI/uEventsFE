@@ -1,14 +1,15 @@
 .navbar-body{
   width: 100%;
-  height: max(40px, 5vh);
-  border-radius: 7vh;
+  height: 8vh;
   background-color: #8C0327;
   box-sizing: border-box;
   /* padding: 0 min(15px, 5vw); */
   display: flex;
   align-items: center;
   color: white;
-  margin-bottom: 3vh;
+  position: absolute;
+  bottom: 0;
+  z-index: 4;
   background:
   radial-gradient(50% 50% at 100% 0,var(--_g2)),
   radial-gradient(50% 50% at 0 100%,var(--_g2)),

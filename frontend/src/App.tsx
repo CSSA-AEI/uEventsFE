@@ -5,6 +5,7 @@ import Home from './pages/homepage/Home.tsx';
 import EventPage from './pages/event/EventPage.tsx';
 import Navbar from './components/Navbar.tsx';
 import Login from './pages/login/Login.tsx';
+import CreateEvent from './pages/create-event/CreateEvent.tsx';
 import { useAuth } from './authentication/AuthContext.tsx';
 
 function AppContent() {
@@ -13,8 +14,6 @@ function AppContent() {
 
   return (
     <div className="App">
-      {isLoggedIn && location.pathname !== '/login' && <Navbar />}
-
       <Routes>
         <Route path="/login" element={<Login />} />
         {isLoggedIn ? (
@@ -26,6 +25,7 @@ function AppContent() {
           <Route path="*" element={<Navigate to="/login" />} />
         )}
       </Routes>
+      {isLoggedIn && location.pathname !== '/login' && <Navbar />}
     </div>
   );
 }
