@@ -14,6 +14,48 @@
         position: relative;
         padding: min(20px, 5vw);
     }
+    .newspaper-headliner{
+        width: 100%;
+        height: fit-content;
+    }
+    .newspaper-headliner > img{
+        width: 100%;
+        height: auto;
+    }
+    .headliner-details{
+        display: flex;
+        flex-direction: column;
+        margin: 15px 0;
+        gap: 5px;
+    }
+    .headliner-details > p{
+        text-align: start;
+        font-family: 'Gloock';
+        margin: 0;
+    }
+    .article-writer-details{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        opacity: 0.6;
+    }
+    .comments{
+        display: flex;
+        justify-content: space-between;
+        gap: 5px;
+        font-size: 0.75em;
+    }
+    .writers{
+        font-size: 0.75em;
+    }
+    .comments-icon{
+        height: 10px;
+        width: 10px;
+    }
+    .comments-icon > img{
+        width: 100%;
+        height: 100%;
+    }
     .homepage-buttons{
         height: calc(min(100vw, 500px) - min(30px, 10vw)*2);
         width: 100%;

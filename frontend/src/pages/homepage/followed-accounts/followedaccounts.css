@@ -2,7 +2,6 @@
     width: 100%;
     overflow: hidden;
     text-decoration: none;
-    margin: min(10px, 3vw) 0;
 }
 .followed-accounts-header{
     width: 100%;
@@ -18,4 +17,29 @@
     height: fit-content;
     box-sizing: border-box;
     gap: 10px;
+}
+.followed-account{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: fit-content;
+    align-items: center;
+}
+.account-circle{
+    height: max(40px, calc(8vh - min(10px, 3vw)*2));
+    width: max(40px, calc(8vh - min(10px, 3vw)*2));
+    background-color: white;
+    border-radius: 3vw;
+    border-radius: 50%;
+    box-sizing: border-box;
+    padding: max(12px, 2.5vw);
+}
+.account-circle > img{
+    height: 100%;
+    width: 100%;
+}
+.account-name{
+    font-size: 0.75em;
+    margin: 5px 0;
+    white-space: nowrap;
 }

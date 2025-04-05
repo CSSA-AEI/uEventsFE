@@ -1,16 +1,16 @@
-import React, { useState , Suspense , useEffect } from 'react';
+import React, { Suspense } from 'react';
 import DailyEvents from './daily-events/DailyEvents.tsx';
 import FollowedAccounts from './followed-accounts/FollowedAccounts.tsx';
 import { useAuth } from '../../authentication/AuthContext.tsx';
-import { motion } from "framer-motion";
-import Navbar from '../../components/Navbar.tsx';
+import Headline from './assets/Covid.jpg';
+import Comments from './assets/comments.svg';
 import './Home.css';
 
-const navItems = ["Home", "Search", "MyEvents"];
+// const navItems = ["Home", "Search", "MyEvents"];
 
 const Home: React.FC = () => {
 
-    const [active, setActive] = useState("Home");
+    // const [active, setActive] = useState("Home");
   
     const { userRole } = useAuth();
 
@@ -23,6 +23,21 @@ const Home: React.FC = () => {
     return (
         <div className='home-layers'>
             <Suspense fallback={<div>Loading...</div>}>
+                <FollowedAccounts accounts={[]} url=''/>
+                <div className='newspaper-headliner'>
+                    <img src={Headline} alt='headline'/>
+                    <div className='headliner-details'>
+                        <p>A New Era: What the virus means for the education of our species</p>
+                        <p style={{fontFamily: "Roboto"}}>Lorem ipsum blah blah blah i cba to type anything useful in here</p>
+                        <div className='article-writer-details'>
+                            <div className='writers'>Christian Bale and Chris Bumstead</div>
+                            <div className='comments'>
+                                <div className='comments-icon'><img src={Comments} alt='comments icon'/></div>
+                                <div>30</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <DailyEvents />
                 <div className='homepage-buttons'>
                     <div className='uottawa-news'>
@@ -43,7 +58,6 @@ const Home: React.FC = () => {
                     </div>
                     <div className='feedback2' style={{backgroundColor:"#CD6A65"}}></div>
                 </div>
-                <FollowedAccounts accounts={[]} url=''/>
             </Suspense>
         </div>
     );

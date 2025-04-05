@@ -32,6 +32,7 @@
     overflow: scroll;
     /* padding: min(25px, 10vw); */
     overflow-x: hidden;
+    padding-bottom: 8vh;
   }
 }
 @media (orientation: landscape) {

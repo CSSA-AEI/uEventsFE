@@ -5,7 +5,7 @@ import Home from './pages/homepage/Home.tsx';
 import EventPage from './pages/event/EventPage.tsx';
 import Navbar from './components/Navbar.tsx';
 import Login from './pages/login/Login.tsx';
-import CreateEvent from './pages/create-event/CreateEvent.tsx';
+// import CreateEvent from './pages/create-event/CreateEvent.tsx';
 import { useAuth } from './authentication/AuthContext.tsx';
 
 function AppContent() {

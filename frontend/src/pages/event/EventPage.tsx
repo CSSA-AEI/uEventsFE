@@ -16,11 +16,22 @@ const EventPage: React.FC = () => {
 
     return (
         <div className='event-details-body'>
-            <div className='event-poster'>
-                <img src={ENGLISH} />
+            <div className='event-actions'>
+                <div className='event-nav-back'></div>
+                <div id='event-header'></div>
+                <div className='save-button'></div>
+                <div className='share-button'></div>
             </div>
-
-            
+            <div className='event-details-container'>
+                <div className='event-poster'>
+                    <div className='poster-image-container'>
+                        <img src={ENGLISH}/>
+                    </div>
+                </div>
+                <div className='event-big-details'>
+                    Game Night
+                </div>
+            </div>
         </div>
     );
 };
