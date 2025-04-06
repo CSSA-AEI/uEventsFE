@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
 const navItems = [
@@ -92,6 +93,29 @@ const navItems = [
 const Navbar: React.FC = () => {
   const [active, setActive] = useState("Home");
 
+  const navigate = useNavigate();
+
+  const handleNavClick = (itemName: string) => {
+    setActive(itemName);
+    // Navigate based on the selected item
+    switch (itemName) {
+      case "Home":
+        navigate("/");
+        break;
+      case "Search":
+        navigate("/search");
+        break;
+      case "MyEvents":
+        navigate("/events"); // adjust route as needed
+        break;
+      case "Profile":
+        navigate("/profile"); // adjust route as needed
+        break;
+      default:
+        break;
+    }
+  };
+
   return (
     <div className="navbar-body">
       <ul className="navbar-list">
@@ -99,7 +123,7 @@ const Navbar: React.FC = () => {
           <div
             key={item.name}
             className={`navbar-item ${active === item.name ? "active" : ""}`}
-            onClick={() => setActive(item.name)}
+            onClick={() => handleNavClick(item.name)}
           >
             <div className="navbar-icon">{item.icon}</div>
             <div className="navbar-text">{item.name}</div>

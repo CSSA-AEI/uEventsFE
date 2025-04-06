@@ -1,7 +1,66 @@
 @media (orientation: portrait) {
-    /*
-        All code for the styling should go here
-        We are using portrait because phones
-        
-    */
+    .search-layers{
+        box-sizing: border-box;
+        height: max(92vh, fit-content);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        overflow: scroll;
+        position: relative;
+        padding: min(20px, 5vw);
+    }
+    .search-bar-container{
+        height: 5vh;
+        background-color: red;
+        box-sizing: border-box;
+    }
+    .following-header-container{
+        margin: 10px 0;
+    }
+    .following-header-container > p{
+        margin: 0;
+    }
+    .following-header{
+        text-align: start;
+        font-size: 1.5rem;
+        font-family: 'Gloock';
+    }
+    .following-details{
+        font-size: 0.8rem;
+        text-align: start;
+        opacity: 0.7;
+    }
+    .followed-events-container{
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        overflow: scroll;
+        gap: 10px;
+    }
+    .not-following-events{
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .not-follow-event{
+        width: 100%;
+        height: 30vh;
+        background-color: blueviolet;
+    }
+    .event-main-details{
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        gap: 10px;
+    }
+    .event-main-image{
+        width: calc(min(200px, 45vw) - min(10px, 3vw)*2);
+        height: calc(min(200px, 45vw) - min(10px, 3vw)*2); 
+        background-color: cadetblue;
+    }
+    .event-main-name{
+
+    }
 }

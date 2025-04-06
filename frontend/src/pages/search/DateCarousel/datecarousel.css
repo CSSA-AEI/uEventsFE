@@ -1,0 +1,37 @@
+.date-carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.carousel-container {
+    width: calc(100% - 20px);
+    overflow-x: scroll;
+    scrollbar-width: none; 
+    -ms-overflow-style: none; 
+    position: relative;
+}
+.carousel-container::-webkit-scrollbar {
+    display: none;
+}
+.carousel-inner {
+    display: flex;
+}
+.date-item {
+    flex: 0 0 80px;
+    text-align: center;
+    padding: 10px 0;
+    color: #555;
+    font-family: sans-serif;
+    text-transform: uppercase;
+}
+.date-item.active {
+    color: #000;
+    font-weight: bold;
+}
+.day-of-week {
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+.month-day {
+    font-size: 0.9rem;
+}

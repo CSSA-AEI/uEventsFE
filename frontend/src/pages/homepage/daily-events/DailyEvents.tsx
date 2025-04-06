@@ -15,10 +15,6 @@ const DailyEvents: React.FC = () => {
         <div className='day-events-container'>
             <div className='date-header'>
                 <div className='date'>Happening Today</div>
-                {/* <div className='day-navigation-buttons'>
-                    <div className='day-navigation'>l</div>
-                    <div className='day-navigation'>r</div>
-                </div> */}
                 <div className='day-navigation-buttons'>
                     See All
                 </div>

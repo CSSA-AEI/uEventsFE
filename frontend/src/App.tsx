@@ -5,7 +5,7 @@ import Home from './pages/homepage/Home.tsx';
 import EventPage from './pages/event/EventPage.tsx';
 import Navbar from './components/Navbar.tsx';
 import Login from './pages/login/Login.tsx';
-// import CreateEvent from './pages/create-event/CreateEvent.tsx';
+import Search from './pages/search/Search.tsx';
 import { useAuth } from './authentication/AuthContext.tsx';
 
 function AppContent() {
@@ -19,6 +19,7 @@ function AppContent() {
         {isLoggedIn ? (
           <>
             <Route path="/" element={<Home />} />
+            <Route path="/search" element={<Search />} />
             <Route path="/events/:eventId" element={<EventPage />} />
           </>
         ) : (
