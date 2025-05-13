@@ -6,6 +6,7 @@ import EventPage from './pages/event/EventPage.tsx';
 import Navbar from './components/Navbar.tsx';
 import Login from './pages/login/Login.tsx';
 import Search from './pages/search/Search.tsx';
+import ClubPage from './pages/club-page/ClubPage.tsx';
 import { useAuth } from './authentication/AuthContext.tsx';
 
 function AppContent() {
@@ -20,6 +21,7 @@ function AppContent() {
           <>
             <Route path="/" element={<Home />} />
             <Route path="/search" element={<Search />} />
+            <Route path="/events" element={<ClubPage />} />
             <Route path="/events/:eventId" element={<EventPage />} />
           </>
         ) : (

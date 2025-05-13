@@ -1,0 +1,39 @@
+.club-page-layers{
+    box-sizing: border-box;
+    height: max(92vh, fit-content);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: scroll;
+    position: relative;
+    background-color: bisque;
+}
+.club-main-page-header{
+    height: 25vh;
+    width: 100%;
+    background-color: red;
+}
+.club-page-container{
+    width: 100%;
+    height: fit-content;
+    padding: min(20px, 5vw);
+    box-sizing: border-box;
+    padding-top: 0;
+}
+.club-main-details{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    gap: 10px;
+}
+.club-main-logo{
+    background-color: rebeccapurple;
+    height: 12.5vh;
+    width: 12.5vh;
+    border-radius: 50%;
+    bottom: 0;
+}
+.club-main-name{
+    width: calc(100% - 12.5vh);
+    text-align: start;
+}

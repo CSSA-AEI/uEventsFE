@@ -17,7 +17,7 @@ const EventPage: React.FC = () => {
     return (
         <div className='event-details-body'>
             <div className='event-actions'>
-                <div className='event-nav-back'></div>
+                <div className='event-nav-back'>Back</div>
                 <div id='event-header'></div>
                 <div className='save-button'></div>
                 <div className='share-button'></div>
@@ -27,9 +27,6 @@ const EventPage: React.FC = () => {
                     <div className='poster-image-container'>
                         <img src={ENGLISH}/>
                     </div>
-                </div>
-                <div className='event-big-details'>
-                    Game Night
                 </div>
             </div>
         </div>
