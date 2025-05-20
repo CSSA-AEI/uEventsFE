@@ -1,0 +1,26 @@
+.dropdown-container{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+.dropdown-toggle{
+    width: 100%;
+    padding: 5px;
+    text-align: start;
+    display: flex;
+    justify-content: space-between;
+}
+.dropdown-menu{
+    width: 100%;
+    position: absolute;
+    top: '100%';
+    left: 0;
+    margin: 0;
+    padding: '0.5rem 0';
+    list-style: 'none';
+    background-color: '#fff';
+    box-shadow: '0 2px 8px rgba(0,0,0,0.15)';
+    border-radius: '4px';
+    z-index: 1000;
+    min-width: '200px';
+}

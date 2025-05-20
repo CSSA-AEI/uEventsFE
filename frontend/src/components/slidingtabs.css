@@ -1,10 +1,9 @@
 .tabs-header {
     display: flex;
     position: relative;
-    border-bottom: 1px solid #eaeaea;
-    background-color: #fafafa;
+    background-color: transparent;
+    font-family: 'Helvetica Neue';
 }
-  
 .tab-item {
     flex: 1;
     text-align: center;
@@ -12,18 +11,17 @@
     cursor: pointer;
     color: #888;
     font-weight: 500;
+    font-size: 0.9rem;
     transition: color 0.3s ease;
 }
-  
 .tab-item.active {
-    color: #9c27b0; /* Active tab text color (purple) */
+    color: #8C0327; /* Active tab text color (purple) */
 }
-  
 .tab-underline {
     position: absolute;
     bottom: 0;
     height: 2px;
-    background-color: #9c27b0; /* Purple underline */
+    background-color: #8C0327; /* Purple underline */
     transition: left 0.3s ease, width 0.3s ease;
 }
   

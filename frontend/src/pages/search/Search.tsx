@@ -42,6 +42,8 @@ const Search: React.FC = () => {
                             </div>
                             <div className='event-main-name'>
                                 <div>Winter Wonderland Ball</div>
+                                <div>A night of mystical wonder and whimsy</div>
+                                <div>UOSU, IPSAA</div>
                             </div>
                         </div>
                     </div>

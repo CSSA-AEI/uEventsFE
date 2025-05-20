@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import './slidingtabs.css';
 
-const SlidingTabs: React.FC = () => {
+export interface TabsProps {
+    tabs: string[];
+    currentTab: (newValue: number) => void;
+}
+const SlidingTabs: React.FC<TabsProps> = ({tabs, currentTab}) => {
   const [activeTab, setActiveTab] = useState(0);
-  const tabs = ['Home', 'Events', 'Socials', 'Team'];
 
   return (
     <div className="tabs-header">
@@ -11,7 +14,10 @@ const SlidingTabs: React.FC = () => {
         <div
           key={index}
           className={`tab-item ${index === activeTab ? 'active' : ''}`}
-          onClick={() => setActiveTab(index)}
+          onClick={() => {
+            setActiveTab(index);
+            currentTab?.(index)
+          }}
         >
           {label}
         </div>

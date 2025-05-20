@@ -1,0 +1,10 @@
+.image-upload-container{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: start;
+    box-sizing: border-box;
+}
+.image-upload-input{
+    box-sizing: border-box;
+}
