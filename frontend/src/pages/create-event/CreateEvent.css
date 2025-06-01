@@ -3,7 +3,7 @@
     height: 100%;
     height: 100%;
     width: 100%;
-    overflow: hidden;
+    overflow: scroll;
 }
 .create-event-title{
     font-size: var(--header-font-size);
@@ -15,11 +15,11 @@
     padding: 0 min(10vw, 25px);
     flex: 7;
 }
-.event-nav-back{
+/* .event-nav-back{
     display: flex;
     align-items: center;
     justify-content: center;
-}
+} */
 .event-details-container{
     width: 100%;
     height: 100%;
@@ -28,17 +28,21 @@
 }
 .event-actions{
     width: 100%;
-    height: calc(100vw / 6);
+    height: fit-content;
     display: flex;
     box-sizing: border-box;
+    padding: 10px 0;
 }
-.event-actions > div{
-    flex: 1;
+.event-actions div{
     box-sizing: border-box;
     padding: 5px;
+    height: fit-content;
 }
-#event-header{
-    flex: 3;
+#create-event-back{
+    display: flex;
+    justify-content: start;
+    box-sizing: border-box;
+    padding-left: 20px;
 }
 .event-image-upload{
     width: 100%;
@@ -68,4 +72,34 @@
     padding: 5px;
     box-sizing: border-box;
     width: 100%;
+}
+.autosize {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    line-height: 1.4;
+    overflow: hidden;  
+    resize: none;  
+    min-height: 3rem; 
+    font-family: 'Helvetica Neue';
+}
+.time-inputs{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    gap: 5px;
+}
+.time-field{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.time-field > label{
+    font-family: 'Helvetica Neue';
+    font-size: 0.8rem;
+}
+.time-field > input{
+    width: 70%;
 }

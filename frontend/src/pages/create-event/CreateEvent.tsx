@@ -1,4 +1,4 @@
-import React, { useState, Suspense, ChangeEvent } from 'react';
+import React, { useState, Suspense, ChangeEvent, useRef } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../authentication/AuthContext.tsx';
 import BasicInformation from './create-event-states/BasicInformation.tsx';
@@ -9,13 +9,16 @@ import Pill from '../../components/Pill.tsx';
 import './CreateEvent.css';
 
 export interface FormData {
-    eventName: string;
-    eventLocation: string;
-    description: string;
-    age: string;
-    eventImage: File | null; 
+    eventName:      string;
+    eventLocation:  string;
+    description:    string;
+    date:           string;
+    tags:           string[];
+    eventImage:     File | null;
+    startTime:      string;
+    endTime:        string;
 }
-
+  
 const CreateEvent: React.FC = () => {
     const { login } = useAuth();
     const navigate = useNavigate();
@@ -30,8 +33,11 @@ const CreateEvent: React.FC = () => {
         eventName: "",
         eventLocation: "",
         description: "",
-        age: "",
-        eventImage: null,             // ← initialize
+        date: "",
+        tags: [],
+        eventImage: null,
+        startTime: "",
+        endTime: "",
     });
 
     // Text inputs handler
@@ -40,6 +46,7 @@ const CreateEvent: React.FC = () => {
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
+    const descriptionRef = useRef<HTMLTextAreaElement>(null);
     // ImageUploader handler
     const handleImageSelect = (file: File | null) => {
         setFormData(prev => ({ ...prev, eventImage: file }));
@@ -50,26 +57,30 @@ const CreateEvent: React.FC = () => {
 
     const handleSubmit = async () => {
         try {
-        // if you need to send the image, use FormData()
-        const payload = new FormData();
-        payload.append("eventName", formData.eventName);
-        payload.append("eventLocation", formData.eventLocation);
-        payload.append("description", formData.description);
-        payload.append("age", formData.age);
-        if (formData.eventImage) {
-            payload.append("eventImage", formData.eventImage);
-        }
+            // if you need to send the image, use FormData()
+            const payload = new FormData();
+            payload.append("eventName",      formData.eventName);
+            payload.append("eventLocation",  formData.eventLocation);
+            payload.append("description",    formData.description);
+            payload.append("date",     formData.date)   
+            payload.append("tags",           JSON.stringify(formData.tags));
+            payload.append("startTime",      formData.startTime);
+            payload.append("endTime",        formData.endTime);
 
-        const response = await fetch("/api/events", {
-            method: "POST",
-            body: payload,
-        });
+            if (formData.eventImage) {
+                payload.append("eventImage", formData.eventImage);
+            }
 
-        if (!response.ok) throw new Error("Failed to submit");
-        alert("Form submitted successfully!");
-        navigate("/events");    // or wherever
+            const response = await fetch("http://localhost:3002/events/upload-events", {
+                method: "POST",
+                body: payload,
+            });
+
+            if (!response.ok) throw new Error("Failed to submit");
+            alert("Form submitted successfully!");
+            navigate("/events");    // or wherever
         } catch (error) {
-        console.error("Error submitting form:", error);
+            console.error("Error submitting form:", error);
         }
     };
 
@@ -77,7 +88,7 @@ const CreateEvent: React.FC = () => {
         <div className='create-event-layers'>
             <Suspense fallback={<div>Loading...</div>}>
                 <div className='event-actions'>
-                    <div className='event-nav-back'></div>
+                    <div id='create-event-back'>X</div>
                     <div id='event-header'>Create Event</div>
                     <div className='save-button' onClick={handleSubmit}>Save</div>
                 </div>
@@ -93,14 +104,70 @@ const CreateEvent: React.FC = () => {
                     </div>
                     <div className='create-event-title'>
                         <div className='upload-header'>2. Event Title</div>
-                        <input type='text' placeholder='Event Title' name='eventTitle' required/>
+                        <input
+                            type="text"
+                            name="eventName"      
+                            placeholder="Event Title"
+                            value={formData.eventName}  
+                            onChange={handleChange} 
+                            required
+                        />
+                    </div>
+                    <div className='create-event-title'>
+                        <div className='upload-header'>4. Event Date</div>
+                        <input
+                            type='date'
+                            name='date'
+                            value={formData.date}
+                            onChange={handleChange}
+                            required
+                        />
                     </div>
                     <div className='create-event-title'>
                         <div className='upload-header'>3. Event Description</div>
-                        <input type='text' placeholder='Event Description' name='eventTitle' required/>
+                        <textarea
+                            ref={descriptionRef}
+                            placeholder='Event Description'
+                            name='description'
+                            value={formData.description}
+                            onChange={(e: ChangeEvent<HTMLTextAreaElement>) => {
+                                setFormData(f => ({ ...f, description: e.target.value }));
+                                e.target.style.height = 'auto';
+                                e.target.style.height = `${e.target.scrollHeight}px`;
+                            }}
+                            className='autosize'
+                            required
+                        />
                     </div>
                     <div className='create-event-title'>
-                        <div className='upload-header'>4. Add Tags</div>
+                        <div className='upload-header'>4. Event Time</div>
+                        <div className='time-inputs'>
+                            <div className='time-field'>
+                                <label htmlFor='startTime'>Starts at:</label>
+                                <input
+                                    type='time'
+                                    name='startTime'
+                                    id='startTime'
+                                    value={formData.startTime}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            <div className='time-field'>
+                                <label htmlFor='endTime'>Ends at:</label>
+                                <input
+                                    type='time'
+                                    name='endTime'
+                                    id='endTime'
+                                    value={formData.endTime}
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div className='create-event-title'>
+                        <div className='upload-header'>5. Add Tags</div>
                         <div style={{fontSize: `0.5rem`}}>Please note you can only select up to 3 tags</div>
                         <DropdownMenu
                             options={tags}
@@ -116,7 +183,18 @@ const CreateEvent: React.FC = () => {
                         </div>
                     </div>
                     <div className='create-event-title'>
-                        <div className='upload-header'>5. Is this a collab event?</div>
+                        <div className='upload-header'>6. Where will this be hosted?</div>
+                        <input
+                            type="text"
+                            name="eventLocation"
+                            placeholder="Event Location"
+                            value={formData.eventLocation}
+                            onChange={handleChange}
+                            required
+                        />
+                    </div>
+                    <div className='create-event-title'>
+                        <div className='upload-header'>7. Is this a collab event?</div>
                         <input type='text' placeholder='Event Description' name='eventTitle' required/>
                     </div>
                 </div>

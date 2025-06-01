@@ -2,7 +2,12 @@ import React, { useState, useRef, useEffect } from 'react';
 import useWindowDimensions from '../../../functions/useWindowDimensions.tsx';
 import './datecarousel.css';
 
-const DateCarousel: React.FC = () => {
+interface DateCarouselProps {
+    selectedDate?: string;
+    onDateSelect?: (isoDate: string) => void;
+}
+
+const DateCarousel: React.FC<DateCarouselProps> = ({ selectedDate, onDateSelect }) => {
 
     const { width, height } = useWindowDimensions();
     const totalDays = 15;
@@ -17,7 +22,13 @@ const DateCarousel: React.FC = () => {
         return d;
     });
 
-    const [activeIndex, setActiveIndex] = useState(Math.floor(totalDays / 2));
+    const isoDay = selectedDate?.slice(0, 10);
+    const foundIndex = dates.findIndex(d => d.toISOString().slice(0, 10) === isoDay);
+    const [activeIndex, setActiveIndex] = useState<number>(
+        foundIndex >= 0 ? foundIndex : centerIndex
+    );
+
+    // const [activeIndex, setActiveIndex] = useState(Math.floor(totalDays / 2));
     const carouselRef = useRef<HTMLDivElement>(null);
 
     // These values must match the css.
@@ -52,14 +63,18 @@ const DateCarousel: React.FC = () => {
                     .toUpperCase();
                     const isActive = index === activeIndex;
                     return (
-                    <div
-                        key={index}
-                        className={`date-item ${isActive ? 'active' : ''}`}
-                        onClick={() => setActiveIndex(index)}
-                    >
-                        <div className="day-of-week">{dayOfWeek}</div>
-                        <div className="month-day">{monthDay}</div>
-                    </div>
+                        <div
+                            key={index}
+                            className={`date-item ${isActive ? 'active' : ''}`}
+                            onClick={() => {
+                                setActiveIndex(index);
+                                const iso = date.toISOString();
+                                onDateSelect?.(iso);
+                            }}
+                        >
+                            <div className="day-of-week">{dayOfWeek}</div>
+                            <div className="month-day">{monthDay}</div>
+                        </div>
                     );
                 })}
             </div>

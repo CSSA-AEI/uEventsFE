@@ -2,9 +2,7 @@ import { useState, useEffect, ChangeEvent } from "react";
 import './ImageUploader.css';
 
 export interface ImageUploaderProps {
-  /** Called when the user selects an image (or clears it). */
   onSelect: (file: File | null) => void;
-  /** Optional label text. */
   label?: string;
 }
 
@@ -15,15 +13,14 @@ export default function ImageUploader({ onSelect, label }: ImageUploaderProps) {
     
     useEffect(() => {
         if (!file) {
-        setPreviewUrl(null);
-        return;
+            setPreviewUrl(null);
+            return;
         }
         const url = URL.createObjectURL(file);
         setPreviewUrl(url);
         return () => URL.revokeObjectURL(url);
     }, [file]);
 
-  /* handlers */
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const f = e.target.files?.[0] ?? null;
         setFile(f);
@@ -35,7 +32,6 @@ export default function ImageUploader({ onSelect, label }: ImageUploaderProps) {
         onSelect(null);
     };
 
-  /* crude inline styles — replace or refine as desired */
     const styles = {
         fileInput: {
         padding: "0.4rem 0.8rem",

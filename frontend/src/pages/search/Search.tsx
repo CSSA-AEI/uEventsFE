@@ -4,13 +4,44 @@ import DateCarousel from './DateCarousel/DateCarousel.tsx';
 import EventCard from '../homepage/daily-events/EventCard.tsx';
 import './Search.css';
 
+const API_BASE = 'https://ueventsbe.onrender.com';
+
 const Search: React.FC = () => {
 
-    const events = [
-        { id: '1', title: 'Capture the Flag', time: '1:00pm - 4:00pm', tags: ['Sport', 'Academic', 'Francophone'], club: "CSSA"},
-        { id: '2', title: 'Tech Talk', time: '2:00pm - 3:30pm', tags: ['Tech', 'Networking'], club: "ESS" },
-        { id: '3', title: 'Coding Challenge', time: '3:00pm - 5:00pm', tags: ['Coding', 'Competition'], club: "CSSA" }
-    ];
+    const [selectedDate, setSelectedDate] = useState<string>(() => {
+        const t = new Date();
+        t.setHours(0, 0, 0, 0);
+        return t.toISOString();
+    });
+    
+    // Fetched events for that date
+    const [events, setEvents] = useState<any[]>([]);
+    const [loading, setLoading] = useState<boolean>(false);
+    const [error, setError] = useState<string | null>(null);
+    
+    useEffect(() => {
+        async function fetchEvents() {
+            setLoading(true);
+            setError(null);
+            try {
+                const url = `http://localhost:3002/events/get-events-specific?date=${encodeURIComponent(selectedDate)}`;
+                const resp = await fetch(url);
+                if (!resp.ok) throw new Error(`Server returned ${resp.status}`);
+                const data = await resp.json();
+                setEvents(data);
+            }  
+            catch (err: any) {
+                setError(err.message);
+                setEvents([]);
+            } 
+            finally {
+                setLoading(false);
+            }
+        }
+        fetchEvents();
+    }, [selectedDate]);
+
+    console.log(events)
     
     return (
         <div className='search-layers'>
@@ -19,7 +50,7 @@ const Search: React.FC = () => {
                 <div className='search-bar-container'>
 
                 </div>
-                <DateCarousel />
+                <DateCarousel selectedDate={selectedDate} onDateSelect={setSelectedDate}/>
                 <div className='followed-accounts-events'>
                     <div className='following-header-container'>
                         <p className='following-header'>Following</p>
