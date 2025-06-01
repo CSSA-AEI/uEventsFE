@@ -71,7 +71,7 @@ const CreateEvent: React.FC = () => {
                 payload.append("eventImage", formData.eventImage);
             }
 
-            const response = await fetch("http://localhost:3002/events/upload-events", {
+            const response = await fetch("https://ueventsbe.onrender.com/events/upload-events", {
                 method: "POST",
                 body: payload,
             });

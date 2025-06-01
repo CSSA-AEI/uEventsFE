@@ -24,7 +24,7 @@ const Search: React.FC = () => {
             setLoading(true);
             setError(null);
             try {
-                const url = `http://localhost:3002/events/get-events-specific?date=${encodeURIComponent(selectedDate)}`;
+                const url = `https://ueventsbe.onrender.com/events/get-events-specific?date=${encodeURIComponent(selectedDate)}`;
                 const resp = await fetch(url);
                 if (!resp.ok) throw new Error(`Server returned ${resp.status}`);
                 const data = await resp.json();
